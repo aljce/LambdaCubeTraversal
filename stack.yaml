@@ -1,0 +1,8 @@
+flags: {}
+extra-package-dbs: []
+packages:
+- '.'
+extra-deps:
+- megaparsec-4.3.0
+- recursion-schemes-4.1.2
+resolver: lts-3.20
