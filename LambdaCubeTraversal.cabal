@@ -18,11 +18,15 @@ library
   ghc-options:         -Wall
   default-extensions:  OverloadedStrings
   other-extensions:    RecursiveDo
-  exposed-modules:     Lib, UnTyped.Syntax, UnTyped.Parser,
-                       UnTyped.Eval, UnTyped.Main
+  exposed-modules:     Lib,
+                       -- UnTyped.Syntax, UnTyped.Parser,
+                       -- UnTyped.Eval, UnTyped.Main, UnTyped.Temp,
+                       SimplyTyped.Syntax, SimplyTyped.Parser, SimplyTyped.Eval,
+                       SimplyTyped.Check
   build-depends:       base >= 4.7 && < 5, text, recursion-schemes,
                        megaparsec, Earley, containers >= 0.5,
-                       ansi-wl-pprint, haskeline >= 0.7
+                       ansi-wl-pprint, haskeline >= 0.7, unordered-containers >= 0.2,
+                       mtl
   default-language:    Haskell2010
 
 executable LambdaCubeTraversal-exe

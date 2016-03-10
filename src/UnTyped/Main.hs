@@ -9,8 +9,8 @@ import UnTyped.Eval
 eval :: Term -> Either String [Term]
 eval term = loop 0 term (stepEval term) [term]
   where loop :: Int -> Term -> Term -> [Term] -> Either String [Term]
-        loop count oldterm newterm terms = case (count >= 100) of
-          True  -> Left "<diverges>"
+        loop count oldterm newterm terms = case (count >= 10) of
+          True  -> return (reverse terms)
           False -> case oldterm == newterm of
             True  -> return (reverse terms)
             False -> loop (count + 1) newterm (stepEval newterm) (newterm : terms)

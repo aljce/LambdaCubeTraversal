@@ -24,6 +24,13 @@ termParser = mdo
         int  = (Constant . CInt  . read) <$> satisfy (all isNumber)
         bool = Constant (CBool False) <$ satisfy ("False" ==) <|> Constant (CBool True) <$ satisfy ("True" ==)
 
+g = mdo
+  s <- rule $ () <$ symbol 'b'
+           <|> () <$ s <* s
+           <|> () <$ s <* s <* s
+           <?> 's'
+  return s
+
 
 tokenize :: String -> [String]
 tokenize "" = []

@@ -46,23 +46,13 @@ termToDoc = para alg
         alg (ConstantF (CInt  lit))  = pretty lit
         alg (VarF name)              = textToDoc name --TODO: f : Text -> Doc???
         alg (AbstracF name (_,term)) = backslash <> textToDoc name <> dot <> term
-        alg (ApplyF (subterm1,term1) (subterm2,term2)) = t1Parens <+> t2Parens 
+        alg (ApplyF (subterm1,term1) (subterm2,term2)) = t1Parens <+> t2Parens
           where t1Parens = case subterm1 of
                   Abstrac _ _ -> parens term1
                   _           -> term1
                 t2Parens = case subterm2 of
                   Apply _ _ -> parens term2
                   _         -> term2
- 
-        -- nameAlg (AbstracF name subterm) = space <> textToDoc name <> subterm
-        -- nameAlg _ = empty
--- termToDoc :: Term -> Doc
--- termToDoc = para alg
---   where alg (ConstantF (CBool bol))    = (0,pretty bol)
---         alg (ConstantF (CInt  lit))    = (0,pretty lit)
---         alg (VarF name)                = (0,textToDoc name) --TODO: f : Text -> Doc???
---         alg (AbstracF name (t,(n,term)))     = (0,backslash <> textToDoc name <> dot <> term)
---         alg (ApplyF (t,(n1,term1)) (s,(n2,term2))) = (0,parens term1 <+> parens term2)
 
 instance Show Term where
   show = show . termToDoc
