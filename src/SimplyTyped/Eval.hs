@@ -30,9 +30,7 @@ eval = para alg
         alg (VarF name) = Var name
 
 fullEval :: Term -> [Term]
-fullEval term = loop 0 [term]
-  where loop 100 _ = []
-        loop n (oldterm:terms) = let newterm = eval oldterm in case oldterm == newterm of
+fullEval = loop . (:[])
+  where loop (oldterm:terms) = let newterm = eval oldterm in case oldterm == newterm of
           True  -> reverse (oldterm:terms)
-          False -> loop (n+1) (newterm:oldterm:terms)
-
+          False -> loop (newterm:oldterm:terms)

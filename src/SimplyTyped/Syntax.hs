@@ -58,12 +58,3 @@ termToDoc = para alg
 
 instance Show Term where
   show = show . termToDoc
-
-k :: () -> () -> ()
-k x y = x
-
-s :: (() -> () -> ()) -> (() -> ()) -> () -> ()
-s x y z = x z (y z)
-
-test :: () -> ()
-test = s k k

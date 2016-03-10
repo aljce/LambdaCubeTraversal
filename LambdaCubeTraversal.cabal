@@ -22,7 +22,7 @@ library
                        -- UnTyped.Syntax, UnTyped.Parser,
                        -- UnTyped.Eval, UnTyped.Main, UnTyped.Temp,
                        SimplyTyped.Syntax, SimplyTyped.Parser, SimplyTyped.Eval,
-                       SimplyTyped.Check
+                       SimplyTyped.Check, SimplyTyped.Main
   build-depends:       base >= 4.7 && < 5, text, recursion-schemes,
                        megaparsec, Earley, containers >= 0.5,
                        ansi-wl-pprint, haskeline >= 0.7, unordered-containers >= 0.2,
